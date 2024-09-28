@@ -2,7 +2,7 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
 const register = async (req, res) => {
-    const { name, email, password, role } = req.body;
+    const { name, email, password, role, address, phonenumber } = req.body;
 
     try {
         const user = new User({
@@ -10,6 +10,8 @@ const register = async (req, res) => {
             email,
             password,
             role,
+            address,
+            phonenumber
         });
 
         await user.save();
